@@ -1,12 +1,9 @@
-# Connect N
+# Connect 4
 
 ## Proposal
-This application is intended to be a custom version of the popular children's game Connect 4. This version of the
-game will allow for custom board size and multiple games to be played at once.
-The target demographic for this application is people
-who are looking for a nostalgic game, but are perhaps too bored of the original (since it never changes!)
-This project is of interest to me because I have created small CLI games before, but have not gone
-into anything with a desktop GUI.
+This is a desktop application for the children's game Connect 4. The target demographic for this application is people
+who are looking to feel some nostalgia from a old familiar game. This project is of interest to me because while I have
+never created a game with a fully functioning GUI before.
 
 ## User Stories
 As a user, I want to be able to add a piece on the board (either color) \
