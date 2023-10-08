@@ -190,6 +190,15 @@ class GameTest {
                 {'O', 'X', 'O', 'X', 'X', 'O', 'O'}
         });
         assertFalse(emptyBoard.overDiagonalLeft());
+        emptyBoard.setBoard(new char[][]{
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', 'O', 'X', 'X', ' '},
+                {' ', ' ', 'O', 'X', 'O', 'O', ' '},
+                {' ', 'O', 'O', 'O', 'O', 'X', ' '},
+                {'X', 'X', 'O', 'X', 'X', 'O', 'O'}
+        });
+        assertFalse(emptyBoard.overDiagonalLeft());
     }
 
     @Test
