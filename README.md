@@ -6,7 +6,10 @@ who are looking to feel some nostalgia from a old familiar game. This project is
 never created a game with a fully functioning GUI before.
 
 ## User Stories
-As a user, I want to be able to add a piece on the board (either color) \
+As a user, I want to be able to easily see where I am placing a piece \
+As a user, I want to be able to add a piece on the board (either piece) \
+As a user, I want to be able to know that the game has ended \
+As a user, I want to be able to know who has won if the game has ended \
 As a user, I want to be able to add a new game to the list of open games \
 As a user, I want to be able to view all the current open games \
 As a user, I want to be able to remove a game from the list of open games
