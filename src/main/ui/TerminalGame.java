@@ -16,6 +16,8 @@ import model.Games;
 
 import java.util.*;
 
+// CREDIT: https://github.students.cs.ubc.ca/CPSC210/SnakeConsole-Lanterna
+
 public class TerminalGame {
     private Screen screen;
     private TerminalSize terminalSize;
@@ -25,6 +27,8 @@ public class TerminalGame {
     private int selectedGame; // in loadMenu
     private String currentView;
 
+    // MODIFIES: this
+    // EFFECTS: starts the terminal and waits for keystrokes
     public void start() throws IOException {
         Terminal terminal = new DefaultTerminalFactory().createTerminal();
         screen = new TerminalScreen(terminal);
@@ -40,6 +44,8 @@ public class TerminalGame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: renders the main menu onto the screen
     private void mainMenu() {
         screen.clear();
         currentView = "main-menu";
@@ -62,6 +68,8 @@ public class TerminalGame {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: handle all key inputs based on current view
     private void handleKey(KeyType type) {
         if (Objects.requireNonNull(type) == KeyType.Escape) {
             mainMenu();
@@ -74,6 +82,8 @@ public class TerminalGame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: handle key inputs in the main menu
     private void handleKeyMainMenu(KeyType type) {
         if (Objects.requireNonNull(type) == KeyType.F1) {
             this.currentGame = new Game();
@@ -84,6 +94,8 @@ public class TerminalGame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: handle key inputs in the game
     private void handleKeyGame(KeyType type) {
         if (Objects.requireNonNull(type) == KeyType.ArrowLeft) {
             selectLeft();
@@ -95,6 +107,8 @@ public class TerminalGame {
         gameUi();
     }
 
+    // MODIFIES: this
+    // EFFECTS: handle key inputs in the load menu
     private void handleKeyLoad(KeyType type) {
         if (Objects.requireNonNull(type) == KeyType.ArrowDown) {
             loadDown();
@@ -111,6 +125,8 @@ public class TerminalGame {
         loadUi();
     }
 
+    // MODIFIES: this
+    // EFFECTS: renders the board onto the screen
     private void gameUi() {
         screen.clear();
         currentView = "game";
@@ -132,6 +148,8 @@ public class TerminalGame {
         columnPointer();
     }
 
+    // MODIFIES: this
+    // EFFECTS: renders the pointer indicating which column is currently selected
     private void columnPointer() {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
@@ -142,11 +160,13 @@ public class TerminalGame {
                 new String(bar));
     }
 
+    // MODIFIES: this
+    // EFFECTS: renders the player's turn or the winner
     private void gameDetails() {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
 
-        if (currentGame.checkGameOver()) {
+        if (currentGame.isGameOver()) {
             String winnerMessage = currentGame.getWinner();
             textGraphics.putString(new TerminalPosition(
                             terminalSize.getColumns() / 2 - (winnerMessage.length() / 2),
@@ -161,6 +181,8 @@ public class TerminalGame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: renders the load menu onto the screen
     private void loadUi() {
         screen.clear();
         currentView = "load";
@@ -188,30 +210,40 @@ public class TerminalGame {
                 message);
     }
 
+    // MODIFIES: this
+    // EFFECTS: increments selectedColumn but prevents it from going over (to the right)
     private void selectRight() {
         if (selectedColumn + 1 <= 6) {
             selectedColumn++;
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: reduces selectedColumn but prevents it from going over (to the left)
     private void selectLeft() {
         if (selectedColumn - 1 >= 0) {
             selectedColumn--;
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: increments selectedGame but prevents it from going over (up)
     private void loadDown() {
         if (selectedGame + 1 < savedGames.getGames().size()) {
             selectedGame++;
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: reduces selectedGame but prevents it from going over (down)
     private void loadUp() {
         if (selectedGame - 1 >= 0) {
             selectedGame--;
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: changes current game to selected game from load menu
     private void loadGame() {
         currentGame = savedGames.getGames().get(selectedGame);
     }
