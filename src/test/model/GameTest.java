@@ -7,11 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
     Game filledBoard;
+    Game emptyBoard;
     String time;
 
     @BeforeEach
     void runBefore() {
         filledBoard = new Game();
+        emptyBoard = new Game();
         filledBoard.setBoard(new char[][]{
             {' ', ' ', ' ', ' ', ' ', ' ', ' '},
             {' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -159,6 +161,17 @@ class GameTest {
         }, filledBoard.getBoard());
         assertTrue(filledBoard.overDiagonalLeft());
         assertTrue(filledBoard.isGameOver());
+
+        assertFalse(emptyBoard.overDiagonalLeft());
+        emptyBoard.setBoard(new char[][]{
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', 'O', ' ', ' ', 'O'},
+                {' ', ' ', 'O', 'X', ' ', 'O', 'X'},
+                {' ', 'X', 'X', 'O', 'O', 'O', 'X'},
+                {'O', 'O', 'X', 'O', 'X', 'X', 'O'}
+        });
+        assertTrue(emptyBoard.overDiagonalLeft());
     }
 
     @Test

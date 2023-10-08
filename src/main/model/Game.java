@@ -143,6 +143,7 @@ public class Game {
         return board;
     }
 
+    // REQUIRES: isGameOver() must be called first and must have returned true
     // EFFECTS: get winner message
     public String getWinner() {
         return "Player " + winner + " has won!";
