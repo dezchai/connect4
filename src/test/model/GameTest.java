@@ -166,12 +166,30 @@ class GameTest {
         emptyBoard.setBoard(new char[][]{
                 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                {' ', ' ', ' ', 'O', ' ', ' ', 'O'},
-                {' ', ' ', 'O', 'X', ' ', 'O', 'X'},
-                {' ', 'X', 'X', 'O', 'O', 'O', 'X'},
-                {'O', 'O', 'X', 'O', 'X', 'X', 'O'}
+                {' ', ' ', ' ', 'X', ' ', ' ', ' '},
+                {' ', ' ', ' ', 'X', ' ', 'O', ' '},
+                {' ', ' ', 'X', 'O', 'O', 'O', 'X'},
+                {' ', 'O', 'X', 'O', 'X', 'X', 'O'}
+        });
+        assertFalse(emptyBoard.overDiagonalLeft());
+        emptyBoard.setBoard(new char[][]{
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', 'X', 'O', ' '},
+                {' ', ' ', ' ', ' ', 'O', 'O', ' '},
+                {' ', ' ', 'X', 'O', 'O', 'X', ' '},
+                {' ', 'O', 'O', 'X', 'X', 'O', 'O'}
         });
         assertTrue(emptyBoard.overDiagonalLeft());
+        emptyBoard.setBoard(new char[][]{
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', 'X', 'X', ' '},
+                {' ', ' ', 'O', 'X', 'O', 'O', ' '},
+                {' ', 'O', 'O', 'O', 'O', 'X', ' '},
+                {'O', 'X', 'O', 'X', 'X', 'O', 'O'}
+        });
+        assertFalse(emptyBoard.overDiagonalLeft());
     }
 
     @Test
