@@ -158,7 +158,7 @@ public class Game {
     }
 
     // REQUIRES: isGameOver() must be called first and must have returned true
-    // EFFECTS: get winner message
+    // EFFECTS: get winner message, or if board is full and no winner, return "Draw!"
     public String getWinner() {
         return winner != 0 ? "Player " + winner + " has won!" : "Draw!";
     }
