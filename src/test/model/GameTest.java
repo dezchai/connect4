@@ -202,6 +202,22 @@ class GameTest {
     }
 
     @Test
+    void testDraw() {
+        emptyBoard.setBoard(new char[][]{
+                {'O','X','O','X','O','X',' '},
+                {'O','X','O','X','O','X','O'},
+                {'O','X','O','X','O','X','O'},
+                {'X','O','X','O','X','O','X'},
+                {'X','O','X','O','X','O','X'},
+                {'X','O','X','O','X','O','X'}
+        });
+        assertFalse(emptyBoard.isGameOver());
+        assertFalse(emptyBoard.overDraw());
+        assertTrue(emptyBoard.move(6));
+        assertTrue(emptyBoard.isGameOver());
+        assertTrue(emptyBoard.overDraw());
+    }
+    @Test
     void testGetters() {
         assertEquals( "Player " + 'O' + "'s" + " turn", filledBoard.getTurn());
         filledBoard.setBoard(new char[][]{
@@ -216,5 +232,16 @@ class GameTest {
         assertTrue(filledBoard.isGameOver());
         assertEquals( "Player " + 'O' + " has won!", filledBoard.getWinner());
         assertEquals(time, filledBoard.getName());
+
+        emptyBoard.setBoard(new char[][]{
+                {'O','X','O','X','O','X','O'},
+                {'O','X','O','X','O','X','O'},
+                {'O','X','O','X','O','X','O'},
+                {'X','O','X','O','X','O','X'},
+                {'X','O','X','O','X','O','X'},
+                {'X','O','X','O','X','O','X'}
+        });
+        assertTrue(emptyBoard.isGameOver());
+        assertEquals("Draw!", emptyBoard.getWinner());
     }
 }

@@ -56,7 +56,7 @@ public class Game {
     // MODIFIES: this
     // EFFECTS: returns true if there is a win on the board
     public boolean isGameOver() {
-        return overUp() || overRight() || overDiagonalLeft() || overDiagonalRight();
+        return overUp() || overRight() || overDiagonalLeft() || overDiagonalRight() || overDraw();
     }
 
     // MODIFIES: this
@@ -133,6 +133,20 @@ public class Game {
         return false;
     }
 
+    // MODIFIES: this
+    // EFFECTS: returns true if the game is drawn (full board with no win)
+    public boolean overDraw() {
+        int openSpaces = 0;
+        for (char[] row : board) {
+            for (char space : row) {
+                if (space == ' ') {
+                    openSpaces++;
+                }
+            }
+        }
+        return openSpaces == 0;
+    }
+
     // EFFECTS: get current turn message
     public String getTurn() {
         return "Player " + turn + "'s" + " turn";
@@ -146,7 +160,7 @@ public class Game {
     // REQUIRES: isGameOver() must be called first and must have returned true
     // EFFECTS: get winner message
     public String getWinner() {
-        return "Player " + winner + " has won!";
+        return winner != 0 ? "Player " + winner + " has won!" : "Draw!";
     }
 
     // EFFECTS: get name of game (creation date)
