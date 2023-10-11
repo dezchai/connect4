@@ -14,5 +14,5 @@ As a user, I want to be able to know if the game is drawn \
 As a user, I want to be able to add a new game to the list of games \
 As a user, I want to be able to view all the current games \
 As a user, I want to be able to remove a game from the list of games \
-AS a user, I want to be able to see stats of all the current games (how many are complete/in progress) \
+As a user, I want to be able to see stats of all the current games (how many are complete/in progress) \
  
