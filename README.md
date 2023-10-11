@@ -11,6 +11,7 @@ As a user, I want to be able to add a piece on the board (either piece) \
 As a user, I want to be able to know that the game has ended \
 As a user, I want to be able to know who has won if the game has ended \
 As a user, I want to be able to know if the game is drawn \
-As a user, I want to be able to add a new game to the list of open games \
-As a user, I want to be able to view all the current open games \
-As a user, I want to be able to remove a game from the list of open games
+As a user, I want to be able to add a new game to the list of games \
+As a user, I want to be able to view all the current games \
+As a user, I want to be able to remove a game from the list of games \
+AS a user, I want to be able to see stats of all the current games (how many are complete/in progress) \
