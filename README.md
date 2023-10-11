@@ -2,7 +2,7 @@
 
 ## Proposal
 This is a desktop application for the children's game Connect 4. The target demographic for this application is people
-who are looking to feel some nostalgia from a old familiar game. This project is of interest to me because while I have
+who are looking to feel some nostalgia from an old familiar game. This project is of interest to me because while I have
 never created a game with a fully functioning GUI before.
 
 ## User Stories
