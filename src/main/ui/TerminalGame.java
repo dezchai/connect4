@@ -208,6 +208,25 @@ public class TerminalGame {
                         terminalSize.getColumns() / 2 - (message.length() / 2),
                         terminalSize.getRows() - 2),
                 message);
+
+        renderStats();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: renders stats message onto screen when in loadUi
+    private void renderStats() {
+        List<Game> games = savedGames.getGames();
+
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
+        textGraphics.setBackgroundColor(TextColor.ANSI.BLUE);
+        if (!games.isEmpty()) {
+            String stats = savedGames.getStats();
+            textGraphics.putString(new TerminalPosition(
+                            terminalSize.getColumns() / 2 - (stats.length() / 2),
+                            terminalSize.getRows() - 1),
+                    stats);
+        }
     }
 
     // MODIFIES: this

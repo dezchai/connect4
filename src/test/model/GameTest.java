@@ -244,4 +244,5 @@ class GameTest {
         assertTrue(emptyBoard.isGameOver());
         assertEquals("Draw!", emptyBoard.getWinner());
     }
+
 }

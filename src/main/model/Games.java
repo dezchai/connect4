@@ -28,4 +28,19 @@ public class Games {
     public List<Game> getGames() {
         return this.games;
     }
+
+    // EFFECTS: returns string containing stats of how many games are done or in progress
+    public String getStats() {
+        int complete = 0;
+        int inProgress = 0;
+        for (Game game: games) {
+            if (game.isGameOver()) {
+                complete++;
+            } else {
+                inProgress++;
+            }
+        }
+        return "Complete: " + complete + " | In Progress: " + inProgress;
+    }
+
 }
