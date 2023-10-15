@@ -2,6 +2,13 @@ package model;
 
 import java.util.Date;
 
+// Represents a Connect 4 board.
+// Board is a 2D char array with each subarray
+// containing a row from top to bottom. A play
+// is represented as either an 'O' or 'X', or a space
+// for neither. Methods include: play move, updateTurn,
+// checking if game over / draw, getting turn, board,
+// winner and name (datetime)
 public class Game {
     private char[][] board = new char[6][7];
     private char turn;

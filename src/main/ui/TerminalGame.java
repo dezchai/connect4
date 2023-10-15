@@ -18,6 +18,9 @@ import java.util.*;
 
 // CREDIT: https://github.students.cs.ubc.ca/CPSC210/SnakeConsole-Lanterna
 
+// Represents the UI for the Games and Game class. Includes a
+// main menu, where the user can choose to create a new game
+// or load an existing game.
 public class TerminalGame {
     private Screen screen;
     private TerminalSize terminalSize;

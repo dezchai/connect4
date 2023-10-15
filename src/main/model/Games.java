@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents a list of the Game class
+// Methods include: adding a Game, removing a Game,
+// getting all Games, and getting stats on those games
+// i.e., how many are in progress / how many are over
 public class Games {
     private final List<Game> games;
 
