@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.googlecode.lanterna.TerminalPosition;
@@ -13,6 +14,9 @@ import com.googlecode.lanterna.input.KeyType;
 
 import model.Game;
 import model.Games;
+
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import java.util.*;
 
@@ -29,6 +33,9 @@ public class TerminalGame {
     private int selectedColumn; // in Game
     private int selectedGame; // in loadMenu
     private String currentView;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/games.json";
 
     // MODIFIES: this
     // EFFECTS: starts the terminal and waits for keystrokes
@@ -36,6 +43,8 @@ public class TerminalGame {
         Terminal terminal = new DefaultTerminalFactory().createTerminal();
         screen = new TerminalScreen(terminal);
         savedGames = new Games();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         screen.startScreen();
         terminalSize = screen.getTerminalSize();
         mainMenu();
@@ -124,6 +133,10 @@ public class TerminalGame {
             loadGame();
             gameUi();
             return;
+        } else if (type == KeyType.F3) {
+            saveGamesToFile();
+        } else if (type == KeyType.F4) {
+            loadGamesFromFile();
         }
         loadUi();
     }
@@ -176,7 +189,7 @@ public class TerminalGame {
                             terminalSize.getRows() - 2),
                     winnerMessage);
         } else {
-            String whosTurnMessage = currentGame.getTurn();
+            String whosTurnMessage = currentGame.getTurnMessage();
             textGraphics.putString(new TerminalPosition(
                             terminalSize.getColumns() / 2 - (whosTurnMessage.length() / 2),
                             terminalSize.getRows() - 2),
@@ -196,6 +209,7 @@ public class TerminalGame {
         textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
         textGraphics.setBackgroundColor(TextColor.ANSI.BLUE);
 
+        renderKeysInLoad();
         for (int i = 0; i < games.size(); i++) {
             Game game = games.get(i);
             String name = "Game #" + i + " " + game.getName();
@@ -213,6 +227,20 @@ public class TerminalGame {
                 message);
 
         renderStats();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: renders available key presses in load menu
+    private void renderKeysInLoad() {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
+        textGraphics.setBackgroundColor(TextColor.ANSI.BLUE);
+
+        String message = "Enter: Start, Backspace: Delete, F3: Save, F4: Load";
+        textGraphics.putString(new TerminalPosition(
+                        terminalSize.getColumns() / 2 - (message.length() / 2),
+                        0),
+                message);
     }
 
     // MODIFIES: this
@@ -270,4 +298,25 @@ public class TerminalGame {
         currentGame = savedGames.getGames().get(selectedGame);
     }
 
+    // EFFECTS: saves the games to a file
+    private void saveGamesToFile() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(savedGames);
+            jsonWriter.close();
+        } catch (FileNotFoundException e) {
+//            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads game from a file
+    private void loadGamesFromFile() {
+        try {
+            savedGames = jsonReader.read();
+//            System.out.println("Loaded " + workRoom.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+//            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
 }

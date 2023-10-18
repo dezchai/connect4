@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 import java.util.Date;
 
 // Represents a Connect 4 board.
@@ -11,7 +13,7 @@ import java.util.Date;
 // winner and name (datetime)
 public class Game {
     private char[][] board = new char[6][7];
-    private char turn;
+    private String turn;
     private char winner;
     private final String name;
 
@@ -22,8 +24,16 @@ public class Game {
                 board[i][j] = ' ';
             }
         }
-        this.turn = 'O';
+        this.turn = "O";
         this.name = new Date().toString();
+    }
+
+    // EFFECTS: constructs a game with custom fields and checks if game is over
+    public Game(String name, String turn, char[][] board) {
+        this.name = name;
+        this.turn = turn;
+        this.board = board;
+        isGameOver();
     }
 
     // REQUIRES: 0 <= place <= 6
@@ -45,7 +55,7 @@ public class Game {
             return false;
         }
 
-        board[row][col] = turn;
+        board[row][col] = turn.toCharArray()[0];
         updateTurn();
         return true;
     }
@@ -53,10 +63,10 @@ public class Game {
     // MODIFIES: this
     // EFFECTS: switches turn from 'O' -> 'X' and vice versa
     private void updateTurn() {
-        if (turn == 'O') {
-            turn = 'X';
+        if (turn.equals("O")) {
+            turn = "X";
         } else {
-            turn = 'O';
+            turn = "O";
         }
     }
 
@@ -155,7 +165,7 @@ public class Game {
     }
 
     // EFFECTS: get current turn message
-    public String getTurn() {
+    public String getTurnMessage() {
         return "Player " + turn + "'s" + " turn";
     }
 
@@ -179,5 +189,14 @@ public class Game {
     // EFFECTS: override current board (for testing)
     public void setBoard(char[][] b) {
         board = b;
+    }
+
+    // EFFECTS: returns json object with key name and board
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("turn", turn);
+        json.put("board", board);
+        return json;
     }
 }
