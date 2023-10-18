@@ -1,7 +1,7 @@
 package persistence;
 
 import model.Game;
-import model.Games;
+import model.GameList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,7 +23,7 @@ public class JsonReader {
 
     // EFFECTS: reads workroom from file and returns it;
     // throws IOException if an error occurs reading data from file
-    public Games read() throws IOException {
+    public GameList read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseGames(jsonObject);
@@ -41,31 +41,31 @@ public class JsonReader {
     }
 
     // EFFECTS: parses workroom from JSON object and returns it
-    private Games parseGames(JSONObject jsonObject) {
-        Games games = new Games();
-        addGames(games, jsonObject);
-        return games;
+    private GameList parseGames(JSONObject jsonObject) {
+        GameList gameList = new GameList();
+        addGames(gameList, jsonObject);
+        return gameList;
     }
 
     // MODIFIES: games
     // EFFECTS: parses thingies from JSON object and adds them to workroom
-    private void addGames(Games games, JSONObject jsonObject) {
+    private void addGames(GameList gameList, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("games");
         for (Object json : jsonArray) {
             JSONObject nextGame = (JSONObject) json;
-            addGame(games, nextGame);
+            addGame(gameList, nextGame);
         }
     }
 
     // MODIFIES: games
     // EFFECTS: parses thingy from JSON object and adds it to workroom
-    private void addGame(Games games, JSONObject jsonObject) {
+    private void addGame(GameList gameList, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String turn = jsonObject.getString("turn");
         JSONArray boardJsonArray = jsonObject.getJSONArray("board");
         char[][] board = jsonBoardToCharBoard(boardJsonArray);
         Game game = new Game(name, turn, board);
-        games.addGame(game);
+        gameList.addGame(game);
     }
 
     // EFFECTS: converts JSON board representation to 2D char array (intended representation)

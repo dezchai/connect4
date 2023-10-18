@@ -9,11 +9,11 @@ import org.json.JSONObject;
 // Methods include: adding a Game, removing a Game,
 // getting all Games, and getting stats on those games
 // i.e., how many are in progress / how many are over
-public class Games {
+public class GameList {
     private final List<Game> games;
 
     // EFFECTS: constructs list of games
-    public Games() {
+    public GameList() {
         games = new ArrayList<>();
     }
 
