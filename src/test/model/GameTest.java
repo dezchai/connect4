@@ -219,7 +219,7 @@ class GameTest {
     }
     @Test
     void testGetters() {
-        assertEquals( "Player " + 'O' + "'s" + " turn", filledBoard.getTurn());
+        assertEquals( "Player " + 'O' + "'s" + " turn", filledBoard.getTurnMessage());
         filledBoard.setBoard(new char[][]{
                 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
                 {' ', ' ', ' ', ' ', ' ', ' ', ' '},

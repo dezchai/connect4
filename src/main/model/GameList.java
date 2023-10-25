@@ -2,16 +2,18 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 // Represents a list of the Game class
 // Methods include: adding a Game, removing a Game,
 // getting all Games, and getting stats on those games
 // i.e., how many are in progress / how many are over
-public class Games {
+public class GameList {
     private final List<Game> games;
 
     // EFFECTS: constructs list of games
-    public Games() {
+    public GameList() {
         games = new ArrayList<>();
     }
 
@@ -47,4 +49,19 @@ public class Games {
         return "Complete: " + complete + " | In Progress: " + inProgress;
     }
 
+    // EFFECTS: returns games in this session as a json object in key "games"
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("games", savedBoardsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns Games as a JSON array
+    private JSONArray savedBoardsToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Game g: games) {
+            jsonArray.put(g.toJson());
+        }
+        return jsonArray;
+    }
 }
