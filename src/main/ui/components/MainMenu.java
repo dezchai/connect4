@@ -1,5 +1,8 @@
 package ui.components;
 
+import model.Game;
+import model.GameList;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,25 +17,33 @@ import java.awt.event.ActionListener;
 public class MainMenu extends JPanel implements ActionListener {
     private static final int WIDTH = 1200;
     private static final int HEIGHT = 900;
+    private GameList savedGames;
+    private LoadUi loadUi;
 
     public MainMenu() {
+        savedGames = new GameList();
         loadMainMenu();
     }
 
     public void actionPerformed(ActionEvent e) {
+        removeAll();
+        updateUI();
+        setBorder(BorderFactory.createEmptyBorder());
+        setLayout(new GridLayout());
         if (e.getActionCommand().equals("New Game")) {
-            removeAll();
-            updateUI();
-            setBorder(BorderFactory.createEmptyBorder());
-            setLayout(new GridLayout());
-            GameUi gameUi = new GameUi();
+            Game game = new Game();
+            GameUi gameUi = new GameUi(game);
+            savedGames.addGame(game);
             add(gameUi);
+        } else if (e.getActionCommand().equals("Load Games")) {
+            loadUi = new LoadUi(savedGames);
+            add(loadUi);
         }
     }
 
     public void loadMainMenu() {
         removeAll();
-        setBorder(BorderFactory.createEmptyBorder(400,500,400,500));
+        setBorder(BorderFactory.createEmptyBorder(375,450,375,450));
         setLayout(new GridLayout(3,1));
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setBackground(Color.black);
@@ -42,6 +53,23 @@ public class MainMenu extends JPanel implements ActionListener {
         loadButton.addActionListener(this);
         add(newGameButton);
         add(loadButton);
+        if (loadUi != null) {
+            savedGames = loadUi.getSavedGames();
+        }
         updateUI();
+    }
+
+    public void updateSavedGames(GameList gameList) {
+        removeAll();
+        updateUI();
+        setBorder(BorderFactory.createEmptyBorder());
+        setLayout(new GridLayout());
+        loadUi = new LoadUi(gameList);
+        add(loadUi);
+    }
+
+    // EFFECTS: returns games currently saved in memory
+    public GameList getSavedGames() {
+        return savedGames;
     }
 }

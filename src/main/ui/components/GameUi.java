@@ -21,7 +21,8 @@ public class GameUi extends JPanel implements ActionListener {
     private final JLabel heading;
     private final GridBagConstraints gridBagConstraints;
 
-    public GameUi() {
+    public GameUi(Game game) {
+        currentGame = game;
         setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         setBackground(Color.blue);
         uiBoard = new ArrayList<>();
@@ -35,7 +36,7 @@ public class GameUi extends JPanel implements ActionListener {
         add(heading, gridBagConstraints);
         boardConstraints();
         initBoard();
-        currentGame = new Game();
+        renderBoard();
         heading.setText(currentGame.getTurnGui());
     }
 

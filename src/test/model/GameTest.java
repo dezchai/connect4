@@ -245,4 +245,43 @@ class GameTest {
         assertEquals("Draw!", emptyBoard.getWinner());
     }
 
+    @Test
+    void testGuiGetters() {
+        assertEquals("Yellow's turn", emptyBoard.getTurnGui());
+        emptyBoard.move(1);
+        assertEquals("Red's turn", emptyBoard.getTurnGui());
+        emptyBoard.setBoard(new char[][]{
+                {'O','X','O','X','O','X','O'},
+                {'O','X','O','X','O','X','O'},
+                {'O','X','O','X','O','X','O'},
+                {'X','O','X','O','X','O','X'},
+                {'X','O','X','O','X','O','X'},
+                {'X','O','X','O','X','O','X'}
+        });
+        assertEquals("Draw!", emptyBoard.getWinnerGui());
+
+        filledBoard.setBoard(new char[][]{
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', 'O', ' ', ' ', ' ', ' '},
+                {' ', 'X', 'O', 'X', ' ', 'O', 'X'},
+                {'O', 'X', 'X', 'O', 'O', 'O', 'X'},
+                {'O', 'O', 'X', 'O', 'X', 'X', 'O'}
+        });
+        filledBoard.move(6);
+        assertTrue(filledBoard.isGameOver());
+        assertEquals( "Yellow" + " has won!", filledBoard.getWinnerGui());
+
+        Game redWin = new Game();
+        redWin.setBoard(new char[][]{
+                {'O','X','O','X','O','X','O'},
+                {'O','X','O','X','O','X','O'},
+                {'O','X','O','X','O','X','O'},
+                {'X','X','X','O','X','O','X'},
+                {'X','O','X','O','X','O','X'},
+                {'X','O','X','O','X','O','X'}
+        });
+        assertTrue(redWin.isGameOver());
+        assertEquals( "Red" + " has won!", redWin.getWinnerGui());
+    }
 }
