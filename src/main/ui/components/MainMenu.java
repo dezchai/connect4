@@ -14,17 +14,21 @@ import java.awt.event.ActionListener;
 // https://stackoverflow.com/questions/6578205/swing-jlabel-text-change-on-the-running-application
 // https://stackoverflow.com/questions/15412467/opening-a-new-jframe-from-a-button
 
+// Represents the main menu window JPanel
 public class MainMenu extends JPanel implements ActionListener {
     private static final int WIDTH = 1200;
     private static final int HEIGHT = 900;
     private GameList savedGames;
     private LoadUi loadUi;
 
+    // EFFECTS: constructs the main menu window
     public MainMenu() {
         savedGames = new GameList();
         loadMainMenu();
     }
 
+    // MODIFIES: this, loadUi
+    // EFFECTS: event listener for main menu
     public void actionPerformed(ActionEvent e) {
         removeAll();
         updateUI();
@@ -41,6 +45,8 @@ public class MainMenu extends JPanel implements ActionListener {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads the main menu buttons (new/load) and grabs savedGames from loadUi
     public void loadMainMenu() {
         removeAll();
         setBorder(BorderFactory.createEmptyBorder(375,450,375,450));
@@ -59,6 +65,8 @@ public class MainMenu extends JPanel implements ActionListener {
         updateUI();
     }
 
+    // MODIFIES: this, loadUi
+    // EFFECTS: updates saved games when given a GameList, used by open dialogue
     public void updateSavedGames(GameList gameList) {
         removeAll();
         updateUI();
@@ -68,7 +76,7 @@ public class MainMenu extends JPanel implements ActionListener {
         add(loadUi);
     }
 
-    // EFFECTS: returns games currently saved in memory
+    // EFFECTS: returns games currently saved in memory in main menu
     public GameList getSavedGames() {
         return savedGames;
     }

@@ -17,3 +17,19 @@ As a user, I want to be able to remove a game from the list of gameList \
 As a user, I want to be able to see stats of all the current gameList (how many are complete/in progress) \
 As a user, I want to be able to save the current games to a file (if I so choose) \
 As a user, I want to be able to be able to load games from a file (if I so choose) \
+
+## Instructions for Grader
+### Generate "add multiple Xs to a Y":
+Press "New Game." Then press "Game" in the top menu bar to go back to the main menu, or CTRL + 1 as as shortcut. \
+Repeat as necessary, each time will automatically save the game into memory. You can see the List of X by pressing
+"Load Games" from the main menu.
+### The second of the two required actions
+I chose to implement a way to remove a game from the list of games. \
+From the main menu, press "Load Games." (ensure that you have added at least one game). \
+Then, Ctrl + Click on any of the buttons to remove the game.
+### Visual component
+The visual component of this project is in the GameUi when the Connect 4 board is rendered.
+### How does the user save the state of the application to file
+From the menu bar, press "Game," then "Save As." The extension of the file should be ".json".
+### How does the user load the state of the application from file
+From the menu bar, press "Game," then "Open".

@@ -21,6 +21,7 @@ public class GameUi extends JPanel implements ActionListener {
     private final JLabel heading;
     private final GridBagConstraints gridBagConstraints;
 
+    // EFFECTS: constructs the game UI
     public GameUi(Game game) {
         currentGame = game;
         setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -40,12 +41,16 @@ public class GameUi extends JPanel implements ActionListener {
         heading.setText(currentGame.getTurnGui());
     }
 
+    // MODIFIES: this
+    // EFFECTS: event listener for GameUi
     public void actionPerformed(ActionEvent e) {
         int col = Integer.parseInt(e.getActionCommand().substring(1,2));
         currentGame.move(col);
         renderBoard();
     }
 
+    // MODIFIES: this
+    // EFFECTS: updates the color of each individual cell in the board and the heading
     private void renderBoard()  {
         char[][] board = currentGame.getBoard();
         for (int i = 0; i < 6; i++) {
@@ -66,6 +71,8 @@ public class GameUi extends JPanel implements ActionListener {
         updateUI();
     }
 
+    // MODIFIES: this
+    // EFFECTS: helper for heading grid bag constraints
     private void headingConstraints() {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -75,6 +82,8 @@ public class GameUi extends JPanel implements ActionListener {
         gridBagConstraints.weightx = 7;
     }
 
+    // MODIFIES: this
+    // EFFECTS: helper for board grid bag constraints
     private void boardConstraints() {
         gridBagConstraints.weightx = 1;
         gridBagConstraints.gridwidth = 1;
@@ -82,6 +91,9 @@ public class GameUi extends JPanel implements ActionListener {
         gridBagConstraints.ipady = 100;
     }
 
+    // MODIFIES: this
+    // EFFECTS: initializes the board as a 2D array of JButtons with corresponding cells in the Game model
+    // uiBoard acts in parallel with char[][] board from Game
     private void initBoard() {
         for (int i = 0; i < 6; i++) {
             gridBagConstraints.gridy = i + 1;

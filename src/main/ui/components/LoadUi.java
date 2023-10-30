@@ -8,9 +8,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Represents the LoadUi JPanel
 public class LoadUi extends JPanel implements ActionListener {
     private final GameList savedGames;
 
+    // EFFECTS: constructs the load menu window
     public LoadUi(GameList savedGames) {
         this.savedGames = savedGames;
         setLayout(new FlowLayout());
@@ -19,6 +21,8 @@ public class LoadUi extends JPanel implements ActionListener {
         renderSavedGames();
     }
 
+    // MODIFIES: this
+    // EFFECTS: renders saved games as buttons with date as their name
     private void renderSavedGames() {
         removeAll();
         if (savedGames.getGames().isEmpty()) {
@@ -42,6 +46,8 @@ public class LoadUi extends JPanel implements ActionListener {
         updateUI();
     }
 
+    // MODIFIES: this
+    // EFFECTS: renders the stats text onto the screen (in progress / complete)
     private void renderStats() {
         JLabel stats = new JLabel(savedGames.getStats());
         stats.setForeground(Color.WHITE);
@@ -50,6 +56,8 @@ public class LoadUi extends JPanel implements ActionListener {
         add(stats, BorderLayout.NORTH);
     }
 
+    // MODIFIES: this
+    // EFFECTS: event listener for the load window
     public void actionPerformed(ActionEvent e) {
         int index = Integer.parseInt(e.getActionCommand());
         if ((ActionEvent.CTRL_MASK & e.getModifiers()) != 0) {
@@ -65,6 +73,7 @@ public class LoadUi extends JPanel implements ActionListener {
         }
     }
 
+    // EFFECTS: gets saved games from load menu
     public GameList getSavedGames() {
         return savedGames;
     }

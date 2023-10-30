@@ -25,6 +25,7 @@ import java.io.IOException;
 public class WindowedGame extends JFrame implements ActionListener {
     private final MainMenu mainMenu;
 
+    // EFFECTS: constructs the root window
     public WindowedGame() {
         super("Connect 4!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,14 +39,15 @@ public class WindowedGame extends JFrame implements ActionListener {
         loadMenuBar();
     }
 
-    // Centres frame on desktop
-    // modifies: this
-    // effects:  location of frame is set so frame is centred on desktop
+    // MODIFIES: this
+    // EFFECTS:  location of frame is set so frame is centred on desktop
     private void centreOnScreen() {
         Dimension scr = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((scr.width - getWidth()) / 2, (scr.height - getHeight()) / 2);
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads menu bar with menu, open, save as, and exit as options
     private void loadMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Game");
@@ -75,6 +77,7 @@ public class WindowedGame extends JFrame implements ActionListener {
         setJMenuBar(menuBar);
     }
 
+    // EFFECTS: save dialogue for menu bar
     private void saveDialogue() {
         JFileChooser fileChooser = new JFileChooser("./data");
         fileChooser.setDialogTitle("Specify a file to save");
@@ -86,6 +89,7 @@ public class WindowedGame extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: helper for saveDialogue, writes file to disk
     private void saveGamesToFile(String path) {
         JsonWriter jsonWriter = new JsonWriter(path);
         try {
@@ -97,6 +101,7 @@ public class WindowedGame extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: open dialogue for menu bar
     private void openDialogue() {
         JFileChooser fileChooser = new JFileChooser("./data");
         fileChooser.setDialogTitle("Open");
@@ -108,6 +113,8 @@ public class WindowedGame extends JFrame implements ActionListener {
         }
     }
 
+    // MODIFIES: mainMenu
+    // EFFECTS: helper for openDialogue, reads file from disk
     private void openGamesFromFile(String path) {
         JsonReader jsonReader = new JsonReader(path);
         try {
@@ -117,6 +124,8 @@ public class WindowedGame extends JFrame implements ActionListener {
         }
     }
 
+    // MODIFIES: mainMenu
+    // EFFECTS: event listener for menu bar
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Main Menu")) {
             mainMenu.loadMainMenu();
