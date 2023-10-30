@@ -16,16 +16,7 @@ public class MainMenu extends JPanel implements ActionListener {
     private static final int HEIGHT = 900;
 
     public MainMenu() {
-        setBorder(BorderFactory.createEmptyBorder(400,500,400,500));
-        setLayout(new GridLayout(3,1));
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        setBackground(Color.black);
-        JButton newGameButton = new JButton("New Game");
-        JButton loadButton = new JButton("Load Games");
-        newGameButton.addActionListener(this);
-        loadButton.addActionListener(this);
-        add(newGameButton);
-        add(loadButton);
+        loadMainMenu();
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -37,5 +28,20 @@ public class MainMenu extends JPanel implements ActionListener {
             GameUi gameUi = new GameUi();
             add(gameUi);
         }
+    }
+
+    public void loadMainMenu() {
+        removeAll();
+        setBorder(BorderFactory.createEmptyBorder(400,500,400,500));
+        setLayout(new GridLayout(3,1));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        setBackground(Color.black);
+        JButton newGameButton = new JButton("New Game");
+        JButton loadButton = new JButton("Load Games");
+        newGameButton.addActionListener(this);
+        loadButton.addActionListener(this);
+        add(newGameButton);
+        add(loadButton);
+        updateUI();
     }
 }

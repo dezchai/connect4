@@ -180,6 +180,23 @@ public class Game {
         return winner != 0 ? "Player " + winner + " has won!" : "Draw!";
     }
 
+    // REQUIRES: isGameOver() must be called first and must have returned true
+    // EFFECTS: get winner message, or if board is full and no winner, return "Draw!".
+    // Version for GUI, which replaces O and X with the color
+    public String getWinnerGui() {
+        if (winner != 0) {
+            String color = winner == 'O' ? "Yellow" : "Red";
+            return color + " has won!";
+        }
+        return "Draw!";
+    }
+
+    // EFFECTS: get current turn message for GUI
+    public String getTurnGui() {
+        String color = turn.equals("O") ? "Yellow" : "Red";
+        return color + "'s turn";
+    }
+
     // EFFECTS: get name of game (creation date)
     public String getName() {
         return name;
