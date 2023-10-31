@@ -34,14 +34,15 @@ public class LoadUi extends JPanel implements ActionListener {
             renderStats();
             JPanel buttonPanel = new JPanel(new GridLayout(0, 6));
             buttonPanel.setBackground(Color.black);
-            add(buttonPanel);
             for (int i = 0; i < savedGames.getGames().size(); i++) {
                 Game g = savedGames.getGames().get(i);
                 JButton j = new JButton(g.getName());
                 j.setActionCommand("" + i);
                 j.addActionListener(this);
+                j.setMargin(new Insets(5,5,5,5));
                 buttonPanel.add(j);
             }
+            add(buttonPanel);
         }
         updateUI();
     }
