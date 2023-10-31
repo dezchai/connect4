@@ -41,7 +41,6 @@ public class LoadUi extends JPanel implements ActionListener {
                 j.setActionCommand("" + i);
                 j.addActionListener(this);
                 j.setMargin(new Insets(5,0,5,0));
-//                j.setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
                 buttonPanel.add(j);
             }
             add(buttonPanel);
