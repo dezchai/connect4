@@ -24,6 +24,7 @@ public class GameUi extends JPanel implements ActionListener {
     // EFFECTS: constructs the game UI
     public GameUi(Game game) {
         currentGame = game;
+
         setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         setBackground(Color.blue);
         uiBoard = new ArrayList<>();
@@ -104,6 +105,8 @@ public class GameUi extends JPanel implements ActionListener {
                 b.setActionCommand("" + i + j);
                 b.addActionListener(this);
                 b.setBackground(Color.white);
+                b.setOpaque(true);
+                b.setFocusPainted(false);
                 add(b, gridBagConstraints);
 
                 row.add(b);

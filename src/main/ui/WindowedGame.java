@@ -19,7 +19,7 @@ import java.io.IOException;
 // https://github.students.cs.ubc.ca/CPSC210/B02-SpaceInvadersBase
 // https://docs.oracle.com/javase/tutorial/uiswing/components/menu.html
 // https://www.codejava.net/java-se/swing/show-save-file-dialog-using-jfilechooser
-
+// https://stackoverflow.com/questions/1065691/how-to-set-the-background-color-of-a-jbutton-on-the-mac-os
 // Represents the main window in which the connect 4
 // game is played. This is the desktop GUI version.
 public class WindowedGame extends JFrame implements ActionListener {
@@ -28,6 +28,11 @@ public class WindowedGame extends JFrame implements ActionListener {
     // EFFECTS: constructs the root window
     public WindowedGame() {
         super("Connect 4!");
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(false);
         mainMenu = new MainMenu();
