@@ -15,8 +15,8 @@ public class LoadUi extends JPanel implements ActionListener {
     // EFFECTS: constructs the load menu window
     public LoadUi(GameList savedGames) {
         this.savedGames = savedGames;
-        setLayout(new FlowLayout());
-        setBorder(BorderFactory.createEmptyBorder(0,50,0,50));
+//        setLayout(new FlowLayout());
+        setBorder(BorderFactory.createEmptyBorder());
         setBackground(Color.black);
         renderSavedGames();
     }
@@ -34,12 +34,13 @@ public class LoadUi extends JPanel implements ActionListener {
             renderStats();
             JPanel buttonPanel = new JPanel(new GridLayout(0, 6));
             buttonPanel.setBackground(Color.black);
+            buttonPanel.setBorder(BorderFactory.createEmptyBorder());
             for (int i = 0; i < savedGames.getGames().size(); i++) {
                 Game g = savedGames.getGames().get(i);
                 JButton j = new JButton(g.getName());
                 j.setActionCommand("" + i);
                 j.addActionListener(this);
-                j.setMargin(new Insets(5,5,5,5));
+                j.setBorder(BorderFactory.createEmptyBorder(5,-30,5,10));
                 buttonPanel.add(j);
             }
             add(buttonPanel);
