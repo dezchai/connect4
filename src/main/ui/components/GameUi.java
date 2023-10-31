@@ -39,7 +39,6 @@ public class GameUi extends JPanel implements ActionListener {
         boardConstraints();
         initBoard();
         renderBoard();
-        heading.setText(currentGame.getTurnGui());
     }
 
     // MODIFIES: this

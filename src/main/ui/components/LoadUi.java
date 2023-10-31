@@ -16,7 +16,7 @@ public class LoadUi extends JPanel implements ActionListener {
     public LoadUi(GameList savedGames) {
         this.savedGames = savedGames;
         setLayout(new FlowLayout());
-        setBorder(BorderFactory.createEmptyBorder());
+        setBorder(BorderFactory.createEmptyBorder(0,50,0,50));
         setBackground(Color.black);
         renderSavedGames();
     }
