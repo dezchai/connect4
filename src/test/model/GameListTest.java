@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests for the GameList class
 public class GameListTest {
     GameList gameList;
     Game x;

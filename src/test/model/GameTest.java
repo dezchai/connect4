@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests for the Game class
 class GameTest {
     Game filledBoard;
     Game emptyBoard;

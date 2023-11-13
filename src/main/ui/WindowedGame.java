@@ -39,9 +39,9 @@ public class WindowedGame extends JFrame implements ActionListener {
         add(mainMenu);
         pack();
         centreOnScreen();
-        setVisible(true);
         setResizable(false);
         loadMenuBar();
+        setVisible(true);
     }
 
     // MODIFIES: this

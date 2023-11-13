@@ -28,7 +28,8 @@ I chose to implement a way to remove a game from the list of games. \
 From the main menu, press "Load Games." (ensure that you have added at least one game). \
 Then, Ctrl + Click on any of the buttons to remove the game.
 ### Visual component
-The visual component of this project is in the GameUi when the Connect 4 board is rendered.
+The visual component of this project are the red and yellow circle images in the GameUi that appear when a cell is 
+pressed.
 ### How does the user save the state of the application to file
 From the menu bar, press "Game," then "Save As." The extension of the file should be ".json".
 ### How does the user load the state of the application from file

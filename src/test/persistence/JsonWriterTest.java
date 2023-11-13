@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests the dumping of JSON files
 public class JsonWriterTest {
     @Test
     void testWriterInvalidFile() {
