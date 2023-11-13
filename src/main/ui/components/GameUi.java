@@ -57,9 +57,9 @@ public class GameUi extends JPanel implements ActionListener {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 if (board[i][j] == 'O') {
-                    uiBoard.get(i).get(j).setIcon(new ImageIcon("data/yellow.png"));
+                    uiBoard.get(i).get(j).setIcon(new ImageIcon("data/yellow_medium.png"));
                 } else if (board[i][j] == 'X') {
-                    uiBoard.get(i).get(j).setIcon(new ImageIcon("data/red.png"));
+                    uiBoard.get(i).get(j).setIcon(new ImageIcon("data/red_medium.png"));
                 }
             }
         }
@@ -84,8 +84,8 @@ public class GameUi extends JPanel implements ActionListener {
     private void boardConstraints() {
         gridBagConstraints.weightx = 1;
         gridBagConstraints.gridwidth = 1;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.ipady = 100;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.ipady = 50;
     }
 
     // MODIFIES: this
@@ -104,7 +104,7 @@ public class GameUi extends JPanel implements ActionListener {
                 b.setOpaque(true);
                 b.setFocusPainted(false);
                 b.setMargin(new Insets(0,0,0,0));
-                Dimension d = new Dimension(25,25);
+                Dimension d = new Dimension(35,35);
                 b.setPreferredSize(d);
                 b.setMinimumSize(d);
                 b.setMaximumSize(d);

@@ -19,8 +19,8 @@ public class MainMenu extends JPanel implements ActionListener {
 //    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 //    private static final int screenWidth = (int) screenSize.getWidth();
 //    private static final int screenHeight = (int) screenSize.getHeight();
-    private static final int WIDTH = 1200; // 1200
-    private static final int HEIGHT = 900; // 900
+    private static final int WIDTH = 800; // 1200
+    private static final int HEIGHT = 600; // 900
     private GameList savedGames;
     private LoadUi loadUi;
 
