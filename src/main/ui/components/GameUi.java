@@ -15,6 +15,7 @@ import java.util.List;
 // https://stackoverflow.com/questions/7867834/get-button-name-from-actionlistener
 // https://stackoverflow.com/questions/17836692/center-components-in-jpanel-with-gridbaglayout
 // https://stackoverflow.com/questions/2715118/how-to-change-the-size-of-the-font-of-a-jlabel-to-take-the-maximum-size
+// https://stackoverflow.com/questions/4801386/how-do-i-add-an-image-to-a-jbutton
 public class GameUi extends JPanel implements ActionListener {
     private final List<List<JButton>> uiBoard;
     private final Game currentGame;
@@ -51,22 +52,18 @@ public class GameUi extends JPanel implements ActionListener {
 
     // MODIFIES: this
     // EFFECTS: updates the color of each individual cell in the board and the heading
-    private void renderBoard()  {
+    private void renderBoard() {
         char[][] board = currentGame.getBoard();
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 if (board[i][j] == 'O') {
-                    uiBoard.get(i).get(j).setBackground(Color.yellow);
+                    uiBoard.get(i).get(j).setIcon(new ImageIcon("data/yellow.png"));
                 } else if (board[i][j] == 'X') {
-                    uiBoard.get(i).get(j).setBackground(Color.red);
+                    uiBoard.get(i).get(j).setIcon(new ImageIcon("data/red.png"));
                 }
             }
         }
-        if (currentGame.isGameOver()) {
-            heading.setText(currentGame.getWinnerGui());
-        } else {
-            heading.setText(currentGame.getTurnGui());
-        }
+        heading.setText(currentGame.isGameOver() ? currentGame.getWinnerGui() : currentGame.getTurnGui());
         heading.setHorizontalAlignment(SwingConstants.CENTER);
         updateUI();
     }
@@ -106,8 +103,12 @@ public class GameUi extends JPanel implements ActionListener {
                 b.setBackground(Color.white);
                 b.setOpaque(true);
                 b.setFocusPainted(false);
+                b.setMargin(new Insets(0,0,0,0));
+                Dimension d = new Dimension(25,25);
+                b.setPreferredSize(d);
+                b.setMinimumSize(d);
+                b.setMaximumSize(d);
                 add(b, gridBagConstraints);
-
                 row.add(b);
             }
             uiBoard.add(row);
