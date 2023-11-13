@@ -16,11 +16,11 @@ import java.awt.event.ActionListener;
 
 // Represents the main menu window JPanel
 public class MainMenu extends JPanel implements ActionListener {
-    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private static final int screenWidth = (int) screenSize.getWidth();
-    private static final int screenHeight = (int) screenSize.getHeight();
-    private static final int WIDTH = screenWidth / 2; // 1200
-    private static final int HEIGHT = (int) (screenHeight / 1.5); // 900
+//    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//    private static final int screenWidth = (int) screenSize.getWidth();
+//    private static final int screenHeight = (int) screenSize.getHeight();
+    private static final int WIDTH = 1200; // 1200
+    private static final int HEIGHT = 900; // 900
     private GameList savedGames;
     private LoadUi loadUi;
 
