@@ -19,18 +19,18 @@ As a user, I want to be able to save the current games to a file (if I so choose
 As a user, I want to be able to be able to load games from a file (if I so choose) \
 
 ## Instructions for Grader
-### Generate "add multiple Xs to a Y":
+### You can generate the first required action related to adding Xs to a Y by
 Press "New Game." Then press "Game" in the top menu bar to go back to the main menu, or CTRL + 1 as as shortcut. \
-Repeat as necessary, each time will automatically save the game into memory. You can see the List of X by pressing
+Repeat as necessary, each time it will automatically save the game into memory. You can see the List of X by pressing
 "Load Games" from the main menu.
-### The second of the two required actions
+### You can generate the second required action related to adding Xs to a Y by
 I chose to implement a way to remove a game from the list of games. \
 From the main menu, press "Load Games." (ensure that you have added at least one game). \
 Then, Ctrl + Click on any of the buttons to remove the game.
-### Visual component
+### You can locate my visual component by
 The visual component of this project are the red and yellow circle images in the GameUi that appear when a cell is 
 pressed.
-### How does the user save the state of the application to file
+### You can save the state of my application by
 From the menu bar, press "Game," then "Save As." The extension of the file should be ".json".
-### How does the user load the state of the application from file
+### You can reload the state of my application by
 From the menu bar, press "Game," then "Open".
