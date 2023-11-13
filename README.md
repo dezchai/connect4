@@ -11,9 +11,9 @@ As a user, I want to be able to add a piece on the board (either piece) \
 As a user, I want to be able to know that the game has ended \
 As a user, I want to be able to know who has won if the game has ended \
 As a user, I want to be able to know if the game is drawn \
-As a user, I want to be able to add a new game to the list of gameList \
+As a user, I want to be able to add a new game to the list of games \
 As a user, I want to be able to view all the current gameList \
-As a user, I want to be able to remove a game from the list of gameList \
+As a user, I want to be able to remove a game from the list of games \
 As a user, I want to be able to see stats of all the current gameList (how many are complete/in progress) \
 As a user, I want to be able to save the current games to a file (if I so choose) \
 As a user, I want to be able to be able to load games from a file (if I so choose) \
