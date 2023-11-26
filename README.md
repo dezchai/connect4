@@ -20,7 +20,7 @@ As a user, I want to be able to be able to load games from a file (if I so choos
 
 ## Instructions for Grader
 ### You can generate the first required action related to adding Xs to a Y by
-Press "New Game." Then press "Game" in the top menu bar to go back to the main menu, or CTRL + 1 as as shortcut. \
+Press "New Game." Then press "Game" in the top menu bar to go back to the main menu, or CTRL + 1 as a shortcut. \
 Repeat as necessary, each time it will automatically save the game into memory. You can see the List of X by pressing
 "Load Games" from the main menu.
 ### You can generate the second required action related to adding Xs to a Y by
@@ -39,4 +39,12 @@ From the menu bar, press "Game," then "Open".
 Added Game 'Sat Nov 25 19:40:08 PST 2023' \
 Added Game 'Sat Nov 25 19:40:14 PST 2023' \
 Removed Game 'Sat Nov 25 19:40:08 PST 2023' \
-Removed Game 'Sat Nov 25 19:40:14 PST 2023' \
+Removed Game 'Sat Nov 25 19:40:14 PST 2023' 
+
+## Phase 4: Task 3
+If I had more time to work on this project, I would consider refactoring out the Main Menu class.
+This is because it doesn't add as much functionality as it did in the Terminal version of the game, mainly because
+there is a menu bar now. In the refactored version, when you launch the GUI, instead of showing the main menu it would
+just start a new game. Users would navigate to the Load Ui through the menu bar. As the menu bar is already required
+to go back to the main menu, it would save a step if you could go directly to load games, while also removing a 
+significant chunk of code.
