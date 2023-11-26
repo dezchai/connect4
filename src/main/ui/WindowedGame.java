@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 import ui.components.MainMenu;
@@ -7,10 +9,7 @@ import ui.components.MainMenu;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,7 +21,7 @@ import java.io.IOException;
 // https://stackoverflow.com/questions/1065691/how-to-set-the-background-color-of-a-jbutton-on-the-mac-os
 // Represents the main window in which the connect 4
 // game is played. This is the desktop GUI version.
-public class WindowedGame extends JFrame implements ActionListener {
+public class WindowedGame extends JFrame implements ActionListener, WindowListener {
     private final MainMenu mainMenu;
 
     // EFFECTS: constructs the root window
@@ -42,6 +41,7 @@ public class WindowedGame extends JFrame implements ActionListener {
         setResizable(false);
         loadMenuBar();
         setVisible(true);
+        addWindowListener(this);
     }
 
     // MODIFIES: this
@@ -139,8 +139,45 @@ public class WindowedGame extends JFrame implements ActionListener {
         } else if (e.getActionCommand().equals("Save As")) {
             saveDialogue();
         } else if (e.getActionCommand().equals("Exit")) {
+            eventLogsOnWindowClose();
             dispose();
         }
     }
+
+    private void eventLogsOnWindowClose() {
+        for (Event e : EventLog.getInstance()) {
+            System.out.println(e.getDescription());
+        }
+    }
+
+    public void windowClosing(WindowEvent e) {
+        eventLogsOnWindowClose();
+    }
+
+    public void windowClosed(WindowEvent e) {
+    }
+
+    public void windowOpened(WindowEvent e) {
+    }
+
+    public void windowIconified(WindowEvent e) {
+    }
+
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    public void windowActivated(WindowEvent e) {
+    }
+
+    public void windowDeactivated(WindowEvent e) {
+    }
+
+    public void windowGainedFocus(WindowEvent e) {
+    }
+
+    public void windowLostFocus(WindowEvent e) {
+    }
+
+
 }
 

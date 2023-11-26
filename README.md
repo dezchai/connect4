@@ -34,3 +34,9 @@ pressed.
 From the menu bar, press "Game," then "Save As." The extension of the file should be ".json".
 ### You can reload the state of my application by
 From the menu bar, press "Game," then "Open".
+
+## Phase 4: Task 2
+Added Game 'Sat Nov 25 19:40:08 PST 2023' \
+Added Game 'Sat Nov 25 19:40:14 PST 2023' \
+Removed Game 'Sat Nov 25 19:40:08 PST 2023' \
+Removed Game 'Sat Nov 25 19:40:14 PST 2023' \

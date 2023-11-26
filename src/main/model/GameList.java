@@ -20,6 +20,7 @@ public class GameList {
     // MODIFIES: this
     // EFFECTS: adds game to list of games
     public void addGame(Game game) {
+        EventLog.getInstance().logEvent(new Event("Added Game '" + game.getName() + "'"));
         games.add(game);
     }
 
@@ -27,6 +28,7 @@ public class GameList {
     // MODIFIES: this
     // EFFECTS: removes game from given index from list of games
     public void removeGame(int i) {
+        EventLog.getInstance().logEvent(new Event("Removed Game '" + games.get(i).getName() + "'"));
         games.remove(i);
     }
 
