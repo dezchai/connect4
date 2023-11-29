@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 
 // SOURCE: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
+// Represents a reader that writes JSON representation of Games to file
 public class JsonReader {
     private final String source;
 

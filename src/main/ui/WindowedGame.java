@@ -144,12 +144,14 @@ public class WindowedGame extends JFrame implements ActionListener, WindowListen
         }
     }
 
+    // EFFECTS: logs events on window close helper
     private void eventLogsOnWindowClose() {
         for (Event e : EventLog.getInstance()) {
             System.out.println(e.getDescription());
         }
     }
 
+    // EFFECTS: window closing event listener
     public void windowClosing(WindowEvent e) {
         eventLogsOnWindowClose();
     }
