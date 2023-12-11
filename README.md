@@ -1,5 +1,31 @@
 # Connect 4
+CPSC 210 Course Project
 
+
+<p align="center">
+  <img alt="Main Menu Example Picture" src="./data/examples/Example_MainMenu.png" />
+</p>
+
+<p align="center">
+The initial screen of Connect 4, featuring options to start a new game or load existing games.
+</p>
+
+<p align="center">
+  <img alt="GameUi Example Picture" src="./data/examples/Example_GameUi.png" />
+</p>
+<p align="center">
+  An example of the Game Ui.
+</p>
+
+<p align="center">
+  <img alt="LoadUi Example Picture" src="./data/examples/Example_LoadUi.png" />
+</p>
+
+<p align="center">
+The load menu, designed for users to view past games and manage game data by saving to or loading from disk.
+</p>
+
+# Below is Documentation for Grading
 ## Proposal
 This is a desktop application for the children's game Connect 4. The target demographic for this application is people
 who are looking to feel some nostalgia from an old familiar game. This project is of interest to me because while I have
