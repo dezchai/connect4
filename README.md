@@ -2,7 +2,7 @@
 CPSC 210 Course Project
 
 <p align="center">
-  <img alt="Main Menu Example Picture" src="./data/examples/Example_MainMenu.png" />
+  <img alt="Main Menu Example Picture" src="./data/examples/MainMenu.png" />
 </p>
 
 <p align="center">
@@ -10,14 +10,14 @@ The initial screen of Connect 4, featuring options to start a new game or load e
 </p>
 
 <p align="center">
-  <img alt="GameUi Example Picture" src="./data/examples/Example_GameUi.png" />
+  <img alt="GameUi Example Picture" src="./data/examples/GameUi.png" />
 </p>
 <p align="center">
   An example of the Game Ui.
 </p>
 
 <p align="center">
-  <img alt="LoadUi Example Picture" src="./data/examples/Example_LoadUi.png" />
+  <img alt="LoadUi Example Picture" src="./data/examples/LoadUi.png" />
 </p>
 
 <p align="center">
