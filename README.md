@@ -1,7 +1,6 @@
 # Connect 4
 CPSC 210 Course Project
 
-
 <p align="center">
   <img alt="Main Menu Example Picture" src="./data/examples/Example_MainMenu.png" />
 </p>
